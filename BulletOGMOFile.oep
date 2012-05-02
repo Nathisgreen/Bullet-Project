@@ -1,0 +1,113 @@
+<project>
+	<name>Project Bullet OGMO</name>
+	
+	<settings>
+		<defaultWidth>2560</defaultWidth>
+		<defaultHeight>1920</defaultHeight>
+	</settings>
+	
+	<tilesets>
+		<tileset name ="WallTiles" image ="Assets/TileSets/BarnTiles.png" tileHeight="16" tileWidth="16" />
+		<tileset name ="foreGroundTiles" image = "Assets/TileSets/foreTiles.png" tileHeight="16" tileWidth="16" />
+		<tileset name ="backGroundTiles" image = "Assets/TileSets/bulletTiles.png" tileHeight="16" tileWidth="16" />
+	</tilesets>
+	
+	<objects>
+		<object name="PlayerStart" image="Assets/Editor/playerStart.png" height ="16" width="16" limit ="1" />
+		<object name="OneWayPlat" image="Assets/Sprites/sprOneWay.png" height ="8" width="16" />
+		<object name="movingHPlat" image="Assets/Sprites/sprMovingPlatform.png" height ="8" width="32" >
+			<values>
+				<boolean name ="Stationary" default ="false"/>
+				<integer name ="ID" min = "0" max = "10000" default = "0"/>
+				<integer name ="Activate_ID" min = "0" max = "10000" default = "0"/>
+				<integer name ="StartDirection" min="0" max ="1" default = "0"/>
+			</values>
+		</object>
+		<object name="Spinner" image="Assets/Sprites/sprSpinner1.png" height ="48" width="7" >
+			<values>
+				<boolean name ="Counter_Rotate" default ="false"/>
+				<number name ="Rotation_Speed" default = "2"/>
+			</values>
+		</object>
+		<object name="Exit" image="Assets/Editor/sprDoor1.png" height ="48" width="46" />
+		<object name="Grabber" image="Assets/Sprites/sprGrabber.png" height ="16" width="16" />
+		<object name="Fuel" image="Assets/Sprites/sprFuel.png" height ="16" width="8" />
+		<object name="Turret" image="Assets/Sprites/sprTurretBase.png" height ="16" width="16">
+			<values>
+				<integer name ="Shoot_Speed" min ="0" max = "200" default = "10" />
+				<integer name ="Bullet_Speed" min ="0" max = "200" default = "10" />
+			</values>
+		</object>
+		<folder name = "Spikes">
+			<object name="SpikeUp" image="Assets/Sprites/sprSpike.png" height ="16" width="16" />
+			<object name="SpikeLeft" image="Assets/Editor/spikeLeft.png" height ="16" width="16" />
+			<object name="SpikeDown" image="Assets/Editor/spikeDown.png" height ="16" width="16" />
+			<object name="SpikeRight" image="Assets/Editor/spikeRight.png" height ="16" width="16" />
+		</folder>
+		<object name="lazorTop" image="Assets/Sprites/sprLazerTop.png" width="16" height="16">
+				<values>
+					<integer name ="OnTime" min ="0" max = "1000000" default = "30" />
+					<integer name ="OffTime" min ="0" max = "100000" default = "30" />
+					<integer name ="StartDelay" min ="0" max = "100000" default = "0" />
+					<boolean name ="Constant" default = "0" />
+				</values>
+			</object>
+		<object name="lazorHoz" image="Assets/Sprites/sprLazerHoz.png" width="16" height="16">
+				<values>
+					<integer name ="OnTime" min ="0" max = "1000000" default = "30" />
+					<integer name ="OffTime" min ="0" max = "100000" default = "30" />
+					<integer name ="StartDelay" min ="0" max = "100000" default = "0" />
+					<boolean name ="Constant" default = "0" />
+				</values>
+			</object>
+		<object name="TextBox" image="Assets/Editor/textBox.png" width="16" height="16">
+				<values>
+					<integer name ="Distance" min ="0" max = "1000000" default = "100" />
+					<string name ="Text" default = "Text Here" />
+				</values>
+			</object>
+		<object name="checkPoint" image="Assets/Sprites/sprCheckPoint.png" height ="32" width="7" />
+		<object name="stopperBlock" image="Assets/Editor/BlockStopper.png" height ="16" width="16" />
+		<object name="ogSciencetis" image="Assets/Sprites/sprSciencetis.png" height ="42" width="12">
+			<values>
+				<integer name="ID" min= "0" max="1000000" default="0" />
+				<integer name="facing" min= "-1" max="1" default="1" />
+			</values>
+		</object>
+		<object name="ogScienceTube" image="Assets/Sprites/sprScienceTube.png" height ="80" width="32">
+			<values>
+				<boolean name ="Display" default ="false"/>
+			</values>
+		</object>
+		<object name ="hotSpot" image ="Assets/Editor/hotSpot.png" height = "16" width="15">
+				<values>
+					<integer name ="CameraX" min ="0" max = "1000000" default = "0" />
+					<integer name ="CameraY" demin ="0" max = "1000000" default = "0" />
+					<integer name ="Distance" min ="0" max = "1000000" default = "100" />
+					<string name ="DisplayText" default = "Text Here" />
+				</values>		
+		</object>
+		<object name ="steamEmitter" image ="Assets/Editor/SteamEmitter.png" height = "16" width="16">
+				<values>
+					<number name ="DirX" min ="-10000" max = "1000000" default = "0" />
+					<number name ="DirY" min ="-10000" max = "1000000" default = "0" />
+				</values>
+		</object>
+		<object name="fuelRecharger" image="Assets/Editor/sprRechargerIcon.png" height ="32" width="32" />
+		<object name="hiddenMedal" image="Assets/Sprites/sprMedal.png" height ="16" width="16" />
+		<object name="openingWallHoz" image="Assets/Sprites/sprOpeningWallHoz.png" height ="16" width="16" />
+		<object name="openingWallVert" image="Assets/Sprites/sprOpeningWallVert.png" height ="16" width="16" />
+	</objects> 
+	<!--
+	-->
+	
+		
+	<layers>
+			<!--lets start all layers with 'L' -->
+			<tiles name="LWallTiles" gridSize="16"  />
+			<tiles name="LForeGroundTiles" gridSize="16" />
+			<tiles name="LBackGroundTiles" gridSize="16" />
+			<objects name="LObjects" gridSize = "16" />
+	</layers>
+
+</project>
